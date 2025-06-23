@@ -1,29 +1,37 @@
 import { useState } from "react";
-import Preloader from './components/Preloader';
-import grains from './assets/bg.svg';
+import TransitionLoader from './components/TransitionLoader';
+import Nav from './components/Nav';
 import Hero from './components/Hero';
 
 function App() {
-  const [isPreloading, setIsPreloading] = useState(true);
+  const [isTransitioning, setIsTransitioning] = useState(true);
+  const [contentOpacity, setContentOpacity] = useState(0);
+
+  const handleTransitionComplete = () => {
+    setIsTransitioning(false);
+    setTimeout(() => {
+      setContentOpacity(1);
+    }, 100);
+  };
 
   return (
-    <>
-      {isPreloading ? (
-        <Preloader setIsPreloading={setIsPreloading} />
+    <div className="bg-[#0c0c0c] min-h-screen">
+      {isTransitioning ? (
+        <TransitionLoader onTransitionComplete={handleTransitionComplete} />
       ) : (
-        <div className="relative h-screen w-full">
-          <div 
-            className="fixed inset-0 -z-10 bg-cover bg-fixed"
-            style={{ backgroundImage: `url(${grains})` }}
-            aria-hidden="true"
-          />
-          
-          <div className="relative">
-            <Hero/>
-          </div>
+        <div 
+          className="relative min-h-screen w-full"
+          style={{
+            opacity: contentOpacity,
+            transition: 'opacity 500ms ease-in-out'
+          }}
+        >
+          <Nav />
+          <Hero />
+          <div className="w-full h-dvh flex bg-white"></div>
         </div>
       )}
-    </>
+    </div>
   );
 }
 

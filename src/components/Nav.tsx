@@ -26,9 +26,11 @@ const Nav = () => {
           <a href='/'>Menu</a>
         </div>
 
-        <div className="font-mono text-base md:text-lg whitespace-nowrap text-white">
-          <a href="/">Tarun Gupta</a>
-        </div>
+        {isScrolled && (
+          <div className="font-mono text-base md:text-lg whitespace-nowrap text-white">
+            <a href="/">Tarun Gupta</a>
+          </div>
+        )}
         
         <div className="flex flex-row md:gap-2 justify-end basis-[150px] md:basis-[200px] text-white">
           <a 

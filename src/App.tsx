@@ -28,7 +28,7 @@ function App() {
         >
           <Nav />
           <Hero />
-          <div className="w-full h-dvh flex bg-white"></div>
+          <div className="w-full h-dvh flex bg-[#0c0c0c]"></div>
         </div>
       )}
     </div>

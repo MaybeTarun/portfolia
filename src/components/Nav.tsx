@@ -21,7 +21,7 @@ const Nav = () => {
   return (
     <div className="fixed top-0 left-0 right-0 z-50 flex justify-center transition-all duration-200">
       <div className={`transition-all duration-200 ease-in-out ${
-        isScrolled ? 'w-[calc(100%-2rem)] md:w-1/2 rounded-full bg-white/10 backdrop-blur-md mx-4 my-4' : 'w-full'
+        isScrolled ? 'w-[calc(100%-2rem)] md:w-1/2 rounded-full bg-white/20 backdrop-blur-md mx-4 my-4' : 'w-full'
       } h-12 flex flex-row px-6 md:px-8 items-center justify-between gap-8 md:gap-12`}>
         <div className='font-mono text-base md:text-lg cursor-pointer whitespace-nowrap basis-[150px] md:basis-[200px] text-white flex items-center gap-2'>
           <a href='/' className='flex justify-center items-center gap-1'>

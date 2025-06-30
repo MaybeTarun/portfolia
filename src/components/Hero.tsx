@@ -1,7 +1,29 @@
 import Spline from '@splinetool/react-spline';
 import lil from '../assets/lil.png';
+import { useRef, useState, useEffect } from 'react';
+
+function useInView<T extends HTMLElement = HTMLElement>(rootMargin = '0px'): [React.RefObject<T>, boolean] {
+  const ref = useRef<T>(null);
+  const [inView, setInView] = useState(false);
+
+  useEffect(() => {
+    const observer = new window.IntersectionObserver(
+      ([entry]) => setInView(entry.isIntersecting),
+      { threshold: 0.1, rootMargin }
+    );
+    if (ref.current) observer.observe(ref.current);
+    return () => {
+      if (ref.current) observer.unobserve(ref.current);
+    };
+  }, [rootMargin]);
+
+  return [ref, inView];
+}
 
 const Hero = () => {
+  const [desktopRef, desktopInView] = useInView<HTMLDivElement>('300px 0px');
+  const [mobileRef, mobileInView] = useInView<HTMLDivElement>('300px 0px');
+
   return (
     <div className='w-full relative'>
       <svg
@@ -35,8 +57,10 @@ const Hero = () => {
         />
       </svg>
 
-      <div className="hidden md:block w-full h-dvh z-10 relative">
-        <Spline scene="https://prod.spline.design/2mxkQh0cYFty0m6L/scene.splinecode" />
+      <div ref={desktopRef} className="hidden md:block w-full h-dvh z-10 relative">
+        {desktopInView && (
+          <Spline scene="https://prod.spline.design/2mxkQh0cYFty0m6L/scene.splinecode" />
+        )}
         <div className='w-40 bottom-0 right-0 h-[10%] bg-[#0c0c0c] absolute'/>
         <div className='bottom-0 left-0 p-6 absolute barriecito text-white text-6xl text-left'>
           Making the Internet<br/>
@@ -44,12 +68,14 @@ const Hero = () => {
         </div>
       </div>
       
-      <div className="block md:hidden w-full h-[40vh] bg-[#0c0c0c] relative z-10">
-        <Spline scene="https://prod.spline.design/0qAwQ8uONn96Wqxo/scene.splinecode" />
+      <div ref={mobileRef} className="block md:hidden w-full h-[40vh] bg-[#0c0c0c] relative z-10">
+        {mobileInView && (
+          <Spline scene="https://prod.spline.design/uNEfd7k0nlu7q3ld/scene.splinecode" />
+        )}
         <div className='w-40 bottom-0 right-0 h-[20%] bg-[#0c0c0c] absolute'></div>
         <div className='bottom-0 left-0 p-6 absolute barriecito text-white text-lg text-left'>
           Making the Internet<br/>
-          <span className="inline-flex items-end gap-1">Less boring</span>
+          <span className="inline-flex items-end gap-1">Less boring<img src={lil} alt="Lil Icon" className="w-auto h-6 mb-[2px]"/></span>
         </div>
       </div>
     </div>

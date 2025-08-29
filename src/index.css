@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -9,6 +11,7 @@
   scrollbar-width: none;
   -ms-overflow-style: none;
   color:  #2D2A32;
+  font-family: "Open Sans", sans-serif;
 }
 
 *::-webkit-scrollbar {
@@ -101,4 +104,13 @@
 .animate-scroll {
   display: flex;
   animation: scroll 20s linear infinite;
+}
+
+.webrotate {
+  animation: spin3d 6s linear infinite;
+}
+
+@keyframes spin3d {
+  0%   { transform: rotate3d(0, 1, 0, 0deg); }
+  100% { transform: rotate3d(0, 1, 0, 360deg); }
 }

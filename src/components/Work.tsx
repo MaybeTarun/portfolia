@@ -1,75 +1,80 @@
+import LogoLoop from './Loops/LogoLoop';
+import ProjectLoop from './Loops/ProjectLoop';
+import test from '../assets/test.png';
+
 const Work = () => {
-  const technologies = [
-    { imageUrl: "https://skillicons.dev/icons?i=react", profileUrl: "https://react.dev/" },
-    { imageUrl: "https://skillicons.dev/icons?i=next", profileUrl: "https://nextjs.org/" },
-    { imageUrl: "https://skillicons.dev/icons?i=express", profileUrl: "https://expressjs.com/" },
-    { imageUrl: "https://skillicons.dev/icons?i=nodejs", profileUrl: "https://nodejs.org/en/" },
-    { imageUrl: "https://skillicons.dev/icons?i=firebase", profileUrl: "https://firebase.google.com/" },
-    { imageUrl: "https://skillicons.dev/icons?i=threejs", profileUrl: "https://threejs.org/" },
-    { imageUrl: "https://skillicons.dev/icons?i=html", profileUrl: "https://developer.mozilla.org/docs/Web/HTML" },
-    { imageUrl: "https://skillicons.dev/icons?i=css", profileUrl: "https://developer.mozilla.org/docs/Web/CSS" },
-    { imageUrl: "https://skillicons.dev/icons?i=js", profileUrl: "https://developer.mozilla.org/docs/Web/JavaScript" },
-    { imageUrl: "https://skillicons.dev/icons?i=ts", profileUrl: "https://www.typescriptlang.org/" },
-    { imageUrl: "https://skillicons.dev/icons?i=tailwind", profileUrl: "https://tailwindcss.com/" },
-    { imageUrl: "https://skillicons.dev/icons?i=mysql", profileUrl: "https://www.mysql.com/" },
-    { imageUrl: "https://skillicons.dev/icons?i=kotlin", profileUrl: "https://kotlinlang.org/" },
-    { imageUrl: "https://skillicons.dev/icons?i=flutter", profileUrl: "https://flutter.dev/" },
-    { imageUrl: "https://skillicons.dev/icons?i=mongodb", profileUrl: "https://www.mongodb.com/" },
-    { imageUrl: "https://skillicons.dev/icons?i=aws", profileUrl: "https://aws.amazon.com/" },
-    { imageUrl: "https://skillicons.dev/icons?i=kubernetes", profileUrl: "https://kubernetes.io/" },
-    { imageUrl: "https://skillicons.dev/icons?i=azure", profileUrl: "https://azure.microsoft.com/en-in" },
-    { imageUrl: "https://skillicons.dev/icons?i=python", profileUrl: "https://www.python.org/" },
-    { imageUrl: "https://skillicons.dev/icons?i=cpp", profileUrl: "https://isocpp.org/" },
-    { imageUrl: "https://skillicons.dev/icons?i=java", profileUrl: "https://www.java.com/" },
-    { imageUrl: "https://skillicons.dev/icons?i=latex", profileUrl: "https://www.latex-project.org/" },
-    { imageUrl: "https://skillicons.dev/icons?i=solidity", profileUrl: "https://docs.soliditylang.org/" },
-    { imageUrl: "https://skillicons.dev/icons?i=figma", profileUrl: "https://www.figma.com/" },
-    { imageUrl: "https://skillicons.dev/icons?i=ps", profileUrl: "https://www.adobe.com/products/photoshop.html" },
-    { imageUrl: "https://skillicons.dev/icons?i=ai", profileUrl: "https://www.adobe.com/products/illustrator.html" },
-    { imageUrl: "https://skillicons.dev/icons?i=blender", profileUrl: "https://www.blender.org/" }
+  const skills = [
+    { src: "https://skillicons.dev/icons?i=react", href: "https://react.dev/", alt: "ReactJs" },
+    { src: "https://skillicons.dev/icons?i=next", href: "https://nextjs.org/", alt: "NextJs" },
+    { src: "https://skillicons.dev/icons?i=express", href: "https://expressjs.com/", alt: "ExpressJs" },
+    { src: "https://skillicons.dev/icons?i=nodejs", href: "https://nodejs.org/en/", alt: "NodeJs" },
+    { src: "https://skillicons.dev/icons?i=firebase", href: "https://firebase.google.com/", alt: "Firebase" },
+    { src: "https://skillicons.dev/icons?i=threejs", href: "https://threejs.org/", alt: "ThreeJs" },
+    { src: "https://skillicons.dev/icons?i=html", href: "https://developer.mozilla.org/docs/Web/HTML", alt: "HTML" },
+    { src: "https://skillicons.dev/icons?i=css", href: "https://developer.mozilla.org/docs/Web/CSS", alt: "CSS" },
+    { src: "https://skillicons.dev/icons?i=js", href: "https://developer.mozilla.org/docs/Web/JavaScript", alt: "Javascript" },
+    { src: "https://skillicons.dev/icons?i=ts", href: "https://www.typescriptlang.org/", alt: "Typescript" },
+    { src: "https://skillicons.dev/icons?i=tailwind", href: "https://tailwindcss.com/", alt: "TailwindCSS" },
+    { src: "https://skillicons.dev/icons?i=mysql", href: "https://www.mysql.com/", alt: "MySQL" },
+    { src: "https://skillicons.dev/icons?i=kotlin", href: "https://kotlinlang.org/", alt: "Kotlin" },
+    { src: "https://skillicons.dev/icons?i=flutter", href: "https://flutter.dev/", alt: "Flutter" },
+    { src: "https://skillicons.dev/icons?i=mongodb", href: "https://www.mongodb.com/", alt: "MongoDB" },
+    { src: "https://skillicons.dev/icons?i=aws", href: "https://aws.amazon.com/", alt: "AWS" },
+    { src: "https://skillicons.dev/icons?i=kubernetes", href: "https://kubernetes.io/", alt: "Kubernetes" },
+    { src: "https://skillicons.dev/icons?i=azure", href: "https://azure.microsoft.com/en-in", alt: "Azure" },
+    { src: "https://skillicons.dev/icons?i=python", href: "https://www.python.org/", alt: "Python" },
+    { src: "https://skillicons.dev/icons?i=cpp", href: "https://isocpp.org/", alt: "C++" },
+    { src: "https://skillicons.dev/icons?i=java", href: "https://www.java.com/", alt: "Java" },
+    { src: "https://skillicons.dev/icons?i=latex", href: "https://www.latex-project.org/", alt: "Latex" },
+    { src: "https://skillicons.dev/icons?i=solidity", href: "https://docs.soliditylang.org/", alt: "Solidity" },
+    { src: "https://skillicons.dev/icons?i=figma", href: "https://www.figma.com/", alt: "Figma" },
+    { src: "https://skillicons.dev/icons?i=ps", href: "https://www.adobe.com/products/photoshop.html", alt: "Photoshop" },
+    { src: "https://skillicons.dev/icons?i=ai", href: "https://www.adobe.com/products/illustrator.html", alt: "Illustrator" },
+    { src: "https://skillicons.dev/icons?i=blender", href: "https://www.blender.org/", alt: "Blender" }
   ];
 
+  const projectline1 = [
+    { src: test, href: "https://bento-gen.vercel.app/", alt: "Test" },
+    { src: test, href: "https://bento-gen.vercel.app/", alt: "Test" }
+  ];
+
+  const projectline2 = [
+    { src: test, href: "https://bento-gen.vercel.app/", alt: "Test" },
+    { src: test, href: "https://bento-gen.vercel.app/", alt: "Test" }
+  ];
+
+
   return (
-    <div className="w-full min-h-screen pt-16">
+    <div className="w-full h-full">
       <div className="">
         <div className="relative overflow-hidden">
-          <div className="flex animate-scroll">
-            {technologies.map((tech, index) => (
-              <div key={index} className="flex flex-col items-center mx-4 group shrink-0">
-                <a 
-                  href={tech.profileUrl} 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="grayscale group-hover:grayscale-0 transition-all duration-200"
-                >
-                  <img 
-                    src={tech.imageUrl}
-                    alt="technology icon"
-                    className="w-16 h-16 md:w-20 md:h-20"
-                  />
-                </a>
-              </div>
-            ))}
-            {technologies.map((tech, index) => (
-              <div key={`duplicate-${index}`} className="flex flex-col items-center mx-4 group shrink-0">
-                <a 
-                  href={tech.profileUrl} 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="grayscale group-hover:grayscale-0 transition-all duration-200"
-                >
-                  <img 
-                    src={tech.imageUrl}
-                    alt="technology icon"
-                    className="w-16 h-16 md:w-20 md:h-20"
-                  />
-                </a>
-                <span className="mt-2 text-sm font-medium text-gray-600 capitalize">
-                  {tech.profileUrl.split('/')[2]?.replace('www.', '').split('.')[0]}
-                </span>
-              </div>
-            ))}
-          </div>
+          <LogoLoop
+            logos={skills}
+            speed={100}
+            direction="left"
+            logoHeight="clamp(70px, 8vw, 80px)"
+            gap={30}
+            scaleOnHover
+            ariaLabel="skills"
+          />
+          <ProjectLoop
+            logos={projectline1}
+            speed={60}
+            direction="right"
+            logoHeight={220}
+            gap={30}
+            scaleOnHover
+            ariaLabel="projects"
+          />
+          <ProjectLoop
+            logos={projectline2}
+            speed={60}
+            direction="left"
+            logoHeight={220}
+            gap={30}
+            scaleOnHover
+            ariaLabel="projects"
+          />
         </div>
       </div>
     </div>

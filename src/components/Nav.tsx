@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { HiMenu, HiX } from 'react-icons/hi';
+import { AnimatePresence, motion } from 'framer-motion';
 
 const Nav = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -33,6 +34,18 @@ const Nav = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  useEffect(() => {
+    const originalOverflow = document.body.style.overflow;
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = originalOverflow || '';
+    }
+    return () => {
+      document.body.style.overflow = originalOverflow || '';
+    };
+  }, [isMobileMenuOpen]);
+
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
@@ -55,9 +68,9 @@ const Nav = () => {
   return (
     <div className="fixed top-0 left-0 right-0 z-50 flex justify-center transition-all duration-200">
       <div className={`transition-all duration-200 ease-in-out ${
-        isScrolled ? 'w-[calc(100%-2rem)] md:w-2/3 rounded-full bg-white/40 backdrop-blur-md mx-4 my-4' : 'w-full'
+        isScrolled ? 'w-[calc(100%-2rem)] md:w-2/3 rounded-full bg-white/40 md:backdrop-blur-md mx-4 my-4' : 'w-full'
       } h-16 flex flex-row px-6 md:px-8 items-center justify-between gap-8 md:gap-12`}>
-        <div className='text-base md:text-lg cursor-pointer whitespace-nowrap basis-[150px] md:basis-[200px] text-white flex items-center gap-2'>
+        <div className='text-base md:text-lg cursor-pointer whitespace-nowrap basis-[150px] md:basis-[200px] flex items-center gap-2'>
           <a href='https://www.maybetarun.in/' className='flex justify-center items-center gap-1 text-[#2D2A32] text-base md:text-lg'>
           MaybeTarun.in
           </a>
@@ -84,44 +97,67 @@ const Nav = () => {
             className="text-[#2D2A32] p-2 transition-colors duration-200"
             aria-label="Toggle mobile menu"
           >
-            {isMobileMenuOpen ? (
-              <HiX className="w-6 h-6" />
-            ) : (
-              <HiMenu className="w-6 h-6" />
-            )}
+            <HiMenu className="w-6 h-6" />
           </button>
 
-          {isMobileMenuOpen && (
-            <div className="absolute top-full right-0 mt-4 w-48 bg-white/30 backdrop-blur-lg rounded-lg shadow-lg border border-gray-200 py-2 z-50">
-              <a 
-                href="#work" 
-                className={`block px-4 py-2 transition-colors duration-200 ${activeSection === 'work' ? 'text-[#2D2A32] underline underline-offset-2 font-medium' : 'text-[#2D2A32] hover:underline hover:underline-offset-1'}`}
-                onClick={closeMobileMenu}
+          <AnimatePresence>
+            {isMobileMenuOpen && (
+              <motion.div
+                key="mobile-menu"
+                initial={{ x: '100%' }}
+                animate={{ x: 0 }}
+                exit={{ x: '100%' }}
+                transition={{ type: 'tween', ease: 'easeInOut', duration: 0.3 }}
+                className="fixed inset-0 z-[60] bg-[#EFF0EF]"
               >
-                Work
-              </a>
-              <a 
-                href="#benefits" 
-                className={`block px-4 py-2 transition-colors duration-200 ${activeSection === 'benefits' ? 'text-[#2D2A32] underline underline-offset-2 font-medium' : 'text-[#2D2A32] hover:underline hover:underline-offset-1'}`}
-                onClick={closeMobileMenu}
-              >
-                Benefits
-              </a>
-              <a 
-                href="#services" 
-                className={`block px-4 py-2 transition-colors duration-200 ${activeSection === 'services' ? 'text-[#2D2A32] underline underline-offset-2 font-medium' : 'text-[#2D2A32] hover:underline hover:underline-offset-1'}`}
-                onClick={closeMobileMenu}
-              >
-                Services
-              </a>
-              <a 
-                href="#contact" 
-                className={`block px-4 py-2 transition-colors duration-200 ${activeSection === 'contact' ? 'text-[#2D2A32] underline underline-offset-2 font-medium' : 'text-[#2D2A32] hover:underline hover:underline-offset-1'}`}
-              >
-                Contact
-              </a>
-            </div>
-          )}
+                <div className="flex flex-col h-full">
+                  <div className="flex items-center justify-between px-6 py-3 border-b border-black/5">
+                    <a href="https://www.maybetarun.in/" className="text-[#2D2A32] text-lg font-medium">MaybeTarun.in</a>
+                    <button
+                      onClick={closeMobileMenu}
+                      aria-label="Close mobile menu"
+                      className="text-[#2D2A32] p-2"
+                    >
+                      <HiX className="w-7 h-7" />
+                    </button>
+                  </div>
+
+                  <nav className="flex-1 px-6 py-6">
+                    <div className="flex flex-col space-y-6 text-lg">
+                      <a
+                        href="#work"
+                        className={`${activeSection === 'work' ? 'text-[#2D2A32] underline underline-offset-4 font-medium' : 'text-[#2D2A32] hover:underline hover:underline-offset-2'}`}
+                        onClick={closeMobileMenu}
+                      >
+                        Work
+                      </a>
+                      <a
+                        href="#benefits"
+                        className={`${activeSection === 'benefits' ? 'text-[#2D2A32] underline underline-offset-4 font-medium' : 'text-[#2D2A32] hover:underline hover:underline-offset-2'}`}
+                        onClick={closeMobileMenu}
+                      >
+                        Benefits
+                      </a>
+                      <a
+                        href="#services"
+                        className={`${activeSection === 'services' ? 'text-[#2D2A32] underline underline-offset-4 font-medium' : 'text-[#2D2A32] hover:underline hover:underline-offset-2'}`}
+                        onClick={closeMobileMenu}
+                      >
+                        Services
+                      </a>
+                      <a
+                        href="#contact"
+                        className={`${activeSection === 'contact' ? 'text-[#2D2A32] underline underline-offset-4 font-medium' : 'text-[#2D2A32] hover:underline hover:underline-offset-2'}`}
+                        onClick={closeMobileMenu}
+                      >
+                        Contact
+                      </a>
+                    </div>
+                  </nav>
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
       </div>
     </div>

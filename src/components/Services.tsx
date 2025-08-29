@@ -6,12 +6,12 @@ function Services() {
     'Landing Page', 
     'Android App',
     'IOS App',
-    'UI/UX Design',
     'Logo',
+    'UI/UX Design',
     'CMS Setup',
+    'SEO',
     'Domain Setup',
     'Web Hosting',
-    'SEO',
     '+ more'
   ];
 

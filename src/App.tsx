@@ -44,6 +44,7 @@ function App() {
     { src: "https://skillicons.dev/icons?i=ts", href: "https://www.typescriptlang.org/", alt: "Typescript" },
     { src: "https://skillicons.dev/icons?i=tailwind", href: "https://tailwindcss.com/", alt: "TailwindCSS" },
     { src: "https://skillicons.dev/icons?i=mysql", href: "https://www.mysql.com/", alt: "MySQL" },
+    { src: "https://skillicons.dev/icons?i=react", href: "https://reactnative.dev/", alt: "ReactNative" },
     { src: "https://skillicons.dev/icons?i=kotlin", href: "https://kotlinlang.org/", alt: "Kotlin" },
     { src: "https://skillicons.dev/icons?i=flutter", href: "https://flutter.dev/", alt: "Flutter" },
     { src: "https://skillicons.dev/icons?i=mongodb", href: "https://www.mongodb.com/", alt: "MongoDB" },

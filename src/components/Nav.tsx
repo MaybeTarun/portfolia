@@ -68,7 +68,7 @@ const Nav = () => {
   return (
     <div className="fixed top-0 left-0 right-0 z-50 flex justify-center transition-all duration-200">
       <div className={`transition-all duration-200 ease-in-out ${
-        isScrolled ? 'w-[calc(100%-2rem)] md:w-2/3 rounded-full bg-white/40 md:backdrop-blur-md mx-4 my-4' : 'w-full'
+        isScrolled ? 'w-[calc(100%-2rem)] md:w-2/3 rounded-full bg-white/50 md:backdrop-blur-md mx-4 my-4' : 'w-full'
       } h-16 flex flex-row px-6 md:px-8 items-center justify-between gap-8 md:gap-12`}>
         <div className='text-base md:text-lg cursor-pointer whitespace-nowrap basis-[150px] md:basis-[200px] flex items-center gap-2'>
           <a href='https://www.maybetarun.in/' className='flex justify-center items-center gap-1 text-[#2D2A32] text-base md:text-lg'>

@@ -22,7 +22,7 @@ const Work = () => {
             logos={projectline1}
             speed={60}
             direction="right"
-            logoHeight={220}
+            logoHeight={280}
             gap={30}
             scaleOnHover
             ariaLabel="projects"
@@ -31,7 +31,7 @@ const Work = () => {
             logos={projectline2}
             speed={60}
             direction="left"
-            logoHeight={220}
+            logoHeight={280}
             gap={30}
             scaleOnHover
             ariaLabel="projects"

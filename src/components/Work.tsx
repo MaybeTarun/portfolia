@@ -1,5 +1,6 @@
 import ProjectLoop from './Loops/ProjectLoop';
 import test from '../assets/test.png';
+import { motion } from 'framer-motion';
 
 const Work = () => {
   
@@ -17,7 +18,7 @@ const Work = () => {
   return (
     <div className="w-full h-full">
       <div className="">
-        <div className="relative overflow-hidden">
+        <motion.div className="relative overflow-hidden" initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.4, delay: 0 }} viewport={{ once: true }}>
           <ProjectLoop
             logos={projectline1}
             speed={60}
@@ -36,7 +37,7 @@ const Work = () => {
             scaleOnHover
             ariaLabel="projects"
           />
-        </div>
+        </motion.div>
       </div>
     </div>
   );

@@ -77,7 +77,7 @@ function App() {
       ariaLabel="skills"
     />
     </div>
-    <section id='work' className='w-full h-fit pt-20 md:pt-40 bg-[#EFF0EF]'>
+    <section id='work' className='w-full h-fit pt-20 bg-[#EFF0EF]'>
       <Work/>
     </section>
     <section id='benefits' className='w-full min-h-screen bg-[#EFF0EF] pt-20 pb-6 md:pb-16 flex flex-col items-center'>

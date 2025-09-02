@@ -1,12 +1,13 @@
 import Microwave from '../assets/microwave.webp';
 import Bulb from '../assets/bulb.webp';
 import Web from '../assets/web.webp';
+import { motion } from 'framer-motion';
 
 const Idea = () => {
   return (
     <div className="w-full h-full mt-32 px-8 py-52 md:py-44 md:px-32 flex flex-col md:flex-row justify-center items-center">
       <div className="flex items-start justify-start text-left w-full h-full">
-        <div className="relative">
+        <motion.div className="relative" initial={{ opacity: 0, x: -40 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.4, delay: 0 }} viewport={{ once: true }}>
           <h2 className="text-[clamp(3.5rem,6vw,8rem)] leading-[clamp(3rem,6vw,7rem)] font-semibold text-[#EFF0EF] uppercase">
             If you've<br/> got the<br/> idea
           </h2>
@@ -15,11 +16,11 @@ const Idea = () => {
             alt="Bulb" 
             className="absolute -bottom-6 right-12 md:right-16 rotate-12 w-24 h-24 md:w-40 md:h-40"
           />
-        </div>
+        </motion.div>
       </div>
 
       <div className="flex flex-col items-end justify-end text-right w-full h-full">
-        <div className="relative">
+        <motion.div className="relative" initial={{ opacity: 0, x: 40 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.4, delay: 0 }} viewport={{ once: true }}>
           <img 
             src={Microwave} 
             alt="Microwave" 
@@ -34,7 +35,7 @@ const Idea = () => {
             leave the<br/> rest to me
           </h2>
           <p className="uppercase text-[clamp(1rem,3vw,1.2rem)] text-[#bcbabd]">"I will cook"</p>
-        </div>
+        </motion.div>
       </div>
     </div>
   );

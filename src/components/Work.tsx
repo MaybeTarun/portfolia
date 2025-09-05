@@ -1,17 +1,26 @@
 import ProjectLoop from './Loops/ProjectLoop';
-import test from '../assets/test.png';
 import { motion } from 'framer-motion';
+import bento from '../assets/bento.png';
+import mana from '../assets/mana.png';
+import aaargh from '../assets/aaargh.png';
+import metalc from '../assets/metalc.png';
+import portfolio from '../assets/portfolio.png';
+import surgeon from '../assets/surgeon.png';
+import cognify from '../assets/cognify.png';
 
 const Work = () => {
   
   const projectline1 = [
-    { src: test, href: "https://bento-gen.vercel.app/", alt: "Test" },
-    { src: test, href: "https://bento-gen.vercel.app/", alt: "Test" }
+    { src: bento, href: "https://bento-gen.vercel.app/", alt: "Bento Gen" },
+    { src: mana, href: "https://manahouse.in/", alt: "Mana House" },
+    { src: aaargh, href: "https://aaargh.vercel.app/", alt: "Aaargh!!" },
+    { src: cognify, href: "https://github.com/MaybeTarun/Cognify", alt: "Cognify" }
   ];
 
   const projectline2 = [
-    { src: test, href: "https://bento-gen.vercel.app/", alt: "Test" },
-    { src: test, href: "https://bento-gen.vercel.app/", alt: "Test" }
+    { src: surgeon, href: "https://surgeonrkl.com/", alt: "Surgeon Portfolio" },
+    { src: metalc, href: "https://old.manahouse.in/", alt: "Metalc Productions" },
+    { src: portfolio, href: "https://maybetarun.vercel.app/", alt: "old portfolio" }
   ];
 
 
@@ -23,7 +32,7 @@ const Work = () => {
             logos={projectline1}
             speed={60}
             direction="right"
-            logoHeight={280}
+            logoHeight={300}
             gap={30}
             scaleOnHover
             ariaLabel="projects"
@@ -32,7 +41,7 @@ const Work = () => {
             logos={projectline2}
             speed={60}
             direction="left"
-            logoHeight={280}
+            logoHeight={300}
             gap={30}
             scaleOnHover
             ariaLabel="projects"

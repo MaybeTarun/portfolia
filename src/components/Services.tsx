@@ -19,7 +19,7 @@ function Services() {
     <>
       <motion.h1 className="text-[clamp(2rem,4vw,4rem)] tracking-[-0.2rem] font-extrabold text-[#2D2A32]" initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.4, delay: 0 }} viewport={{ once: true }}>Your all-in-one builder</motion.h1>
       
-      <div className="flex flex-wrap gap-4 md:gap-8 mt-8 w-full md:w-1/2 px-4 md:px-0 justify-center">
+      <div className="flex flex-wrap gap-4 md:gap-8 mt-8 w-full max-w-[800px] px-4 justify-center">
         {services.map((service, index) => (
           <motion.span 
             key={index}

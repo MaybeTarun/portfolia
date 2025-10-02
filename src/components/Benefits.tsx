@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import BaymaxWithCandy from './BaymaxWithCandy';
 
 function Benefits() {
   return (
@@ -6,9 +7,19 @@ function Benefits() {
       <motion.h1 className="text-[clamp(2rem,4vw,4rem)] tracking-tighter font-extrabold text-[#2D2A32]" initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.4, delay: 0 }} viewport={{ once: true }}>Ready when you are</motion.h1>
       <motion.p className="text-[clamp(0.8rem,3vw,1.3rem)] tracking-tight font-light text-[#2D2A32] mb-8" initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.4, delay: 0 }} viewport={{ once: true }}>The instant alternative to hiring a developer.</motion.p>
       
-      <div className="w-full px-4 md:px-0 md:w-1/2 flex flex-col md:flex-row gap-3 md:gap-6">
+      <div className="w-full px-4 max-w-[800px] flex flex-col md:flex-row gap-3 md:gap-6 relative">
 
-        <motion.div className="bg-[#2D2A32] rounded-[2rem] p-8 text-[#EFF0EF] md:w-1/2 flex flex-col justify-between" initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.4, delay: 0 }} viewport={{ once: true }}>
+        <motion.div
+          className="hidden md:block absolute -left-[23%] -top-[10%] pointer-events-none z-0"
+          initial={{ x: 40, opacity: 0 }}
+          whileInView={{ x: 0, opacity: 1 }}
+          transition={{ duration: 0.6, ease: 'easeOut' }}
+          viewport={{ once: true }}
+        >
+          <BaymaxWithCandy className='w-52 -rotate-6' />
+        </motion.div>
+
+        <motion.div className="bg-[#2D2A32] rounded-[2rem] p-8 text-[#EFF0EF] md:w-1/2 z-10 flex flex-col justify-between" initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.4, delay: 0 }} viewport={{ once: true }}>
           <h3 className="text-xl font-semibold mb-4 text-[#EFF0EF]">An Awesome Developer</h3>
           <p className="text-base md:text-lg leading-relaxed text-[#bcbabd]">With 4+ years of experience, you&apos;ll always work directly with the same awesome developer on every project. No hand-offs. No middlemen. Just quality work.</p>
         </motion.div>
@@ -27,7 +38,7 @@ function Benefits() {
 
       </div>
 
-      <div className="w-full px-4 md:px-0 md:w-1/2 flex flex-col mt-3 md:mt-6 md:flex-row gap-3 md:gap-6">
+      <div className="w-full px-4 max-w-[800px] flex flex-col mt-3 md:mt-6 md:flex-row gap-3 md:gap-6">
               
         <div className="flex flex-col gap-3 md:gap-6 md:w-1/2">
           <motion.div className="bg-white rounded-[2rem] p-8" initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.4, delay: 0 }} viewport={{ once: true }}>

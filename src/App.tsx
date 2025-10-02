@@ -66,7 +66,7 @@ function App() {
     <>
     <Nav/>
     <Hero/>
-    <div id='skills' className='bg-[#EFF0EF] w-full h-full'>
+    <div id='skills' className='bg-[#EFF0EF] w-full h-full md:py-6'>
     <LogoLoop
       logos={skills}
       speed={100}
@@ -77,7 +77,7 @@ function App() {
       ariaLabel="skills"
     />
     </div>
-    <section id='work' className='w-full h-fit pt-20 bg-[#EFF0EF]'>
+    <section id='work' className='w-full h-fit pt-24 bg-[#EFF0EF]'>
       <Work/>
     </section>
     <section id='benefits' className='w-full min-h-screen bg-[#EFF0EF] pt-20 pb-6 md:pb-16 flex flex-col items-center'>

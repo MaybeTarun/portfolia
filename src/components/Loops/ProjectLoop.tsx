@@ -471,12 +471,12 @@ export const LogoLoop = React.memo<LogoLoopProps>(
           aria-label="Project preview"
         >
           <div
-            className="absolute inset-0 bg-black/70"
+            className="absolute inset-0"
             onClick={() => setModalUrl(null)}
           />
           <div className="relative z-[1] flex w-full">
-            <div className="m-4 flex-1 rounded-2xl border border-black bg-black overflow-hidden">
-              <div className="flex items-center justify-between border-b border-black bg-black px-4 py-2">
+            <div className="m-4 flex-1 rounded-2xl border border-[#2D2A32] bg-[#2D2A32] overflow-hidden">
+              <div className="flex items-center justify-between border-b border-[#2D2A32] px-4 py-2">
                 <a href={modalUrl} target="_blank"><div className="min-w-0 text-xs md:text-sm text-[#EFF0EF] truncate">
                   {modalUrl}
                 </div></a>

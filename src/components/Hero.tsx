@@ -28,7 +28,7 @@ const Hero = () => {
         </motion.div>
 
         <motion.div
-          className="absolute -top-[50%] lg:-top-[40%] right-0"
+          className="absolute -top-[50%] md:-top-[120%] lg:-top-[40%] right-0"
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6, delay: 0.6 }}
@@ -37,7 +37,7 @@ const Hero = () => {
         </motion.div>
 
         <motion.div
-          className="absolute -bottom-[130%] lg:-bottom-[70%] left-4 lg:left-[15%]"
+          className="absolute -bottom-[130%] md:-bottom-[260%] lg:-bottom-[70%] left-4 lg:left-[15%]"
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6, delay: 0.4 }}
@@ -46,7 +46,7 @@ const Hero = () => {
         </motion.div>
 
         <motion.div
-          className="absolute -top-[70%] left-2 lg:left-[43.2%] lg:-top-[90%]"
+          className="absolute -top-[70%] md:-top-[140%] left-2 lg:left-[43.2%] lg:-top-[90%]"
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6, delay: 0.4 }}
@@ -55,7 +55,7 @@ const Hero = () => {
         </motion.div>
 
         <motion.div
-          className="absolute -bottom-[115%] right-[10%]"
+          className="absolute -bottom-[115%] md:-bottom-[220%] lg:-bottom-[115%] right-[10%] md:right-4 lg:right-[10%]"
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6, delay: 0.6 }}

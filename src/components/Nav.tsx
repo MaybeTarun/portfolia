@@ -76,7 +76,7 @@ const Nav = () => {
           </a>
         </div>
         
-        <div className="hidden md:flex items-center gap-6 md:gap-8 text-base">
+        <div className="hidden lg:flex items-center gap-6 md:gap-8 text-base">
           <a href="#work" className={getNavLinkClass('work')}>
             Work
           </a>
@@ -91,7 +91,7 @@ const Nav = () => {
           </a>
         </div>
 
-        <div className="md:hidden relative">
+        <div className="lg:hidden relative">
           <button
             onClick={toggleMobileMenu}
             className="text-[#2D2A32] p-2 transition-colors duration-200"

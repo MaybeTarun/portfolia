@@ -51,7 +51,7 @@ const BaymaxFace: React.FC<BaymaxFaceProps> = ({ shadowX = 4, shadowY = -4, helm
         onClick={() => setShowHelmet((prev) => !prev)}
       >
         <div
-          className="flex items-center"
+          className="flex items-center mt-2"
           style={{
             transform: `translate(${offset.x}px, ${offset.y}px)`,
             transition: "transform 0.05s linear",

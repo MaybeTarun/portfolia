@@ -87,9 +87,9 @@ function App() {
       <Services/>
     </section>
     <section id="idea" className="relative w-full h-screen bg-[#2D2A32] overflow-hidden">
-      <div className='w-full h-32 bg-[#EFF0EF] block md:hidden'></div>
+      <div className='w-full h-32 bg-[#EFF0EF] block lg:hidden'></div>
       <img src={Wave} alt="wave" className="relative w-full h-auto object-cover z-0"/>
-      <img src={Wave} alt="wave flipped" className="absolute bottom-0 left-0 w-full h-auto object-cover rotate-180 z-0 md:-mb-28"/>
+      <img src={Wave} alt="wave flipped" className="absolute bottom-0 left-0 w-full h-auto object-cover rotate-180 z-0 lg:-mb-28"/>
       <div className='absolute inset-0 z-10 flex items-center justify-center'><Idea /></div>
     </section>
     <section id='contact' className='w-full h-screen bg-[#EFF0EF] overflow-hidden'>

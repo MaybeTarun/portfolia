@@ -6,7 +6,8 @@ import aaargh from '../assets/aaargh.png';
 import metalc from '../assets/metalc.png';
 import portfolio from '../assets/portfolio.png';
 import surgeon from '../assets/surgeon.png';
-import cognify from '../assets/cognify.png';
+import revo from '../assets/Revo.webp';
+import portfolionew from '../assets/portfolionew.webp';
 
 const Work = () => {
   
@@ -14,13 +15,14 @@ const Work = () => {
     { src: bento, href: "https://bento-gen.vercel.app/", alt: "Bento Gen" },
     { src: mana, href: "https://manahouse.in/", alt: "Mana House" },
     { src: aaargh, href: "https://aaargh.vercel.app/", alt: "Aaargh!!" },
-    { src: cognify, href: "https://github.com/MaybeTarun/Cognify", alt: "Cognify" }
+    { src: revo, href: "https://revo-murex.vercel.app/", alt: "revo" }
   ];
 
   const projectline2 = [
     { src: surgeon, href: "https://surgeonrkl.com/", alt: "Surgeon Portfolio" },
     { src: metalc, href: "https://old.manahouse.in/", alt: "Metalc Productions" },
-    { src: portfolio, href: "https://maybetarun.vercel.app/", alt: "old portfolio" }
+    { src: portfolio, href: "https://maybetarun.vercel.app/", alt: "old portfolio" },
+    { src: portfolionew, href: "https://maybetarun.in/", alt: "new portfolio" }
   ];
 
 

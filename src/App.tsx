@@ -9,6 +9,7 @@ import Wave from './assets/wave.svg';
 import Idea from './components/Idea';
 import Contact from './components/Contact';
 import LogoLoop from './components/Loops/LogoLoop';
+import Footer from './components/Footer';
 
 function App() {
   useEffect(() => {
@@ -63,39 +64,55 @@ function App() {
   ];
 
   return (
-    <>
-    <Nav/>
-    <Hero/>
-    <div id='skills' className='bg-[#EFF0EF] w-full h-full md:py-6'>
-    <LogoLoop
-      logos={skills}
-      speed={100}
-      direction="left"
-      logoHeight="clamp(70px, 8vw, 80px)"
-      gap={30}
-      scaleOnHover
-      ariaLabel="skills"
-    />
+    <div className='relative min-h-screen'>
+      <div className='relative z-10 bg-[#EFF0EF] mb-[12dvh] md:mb-[50dvh] sans'>
+        <Nav/>
+        <Hero/>
+        <div id='skills' className='bg-[#EFF0EF] w-full h-full md:py-6'>
+        <LogoLoop
+          logos={skills}
+          speed={100}
+          direction="left"
+          logoHeight="clamp(70px, 8vw, 80px)"
+          gap={30}
+          scaleOnHover
+          ariaLabel="skills"
+        />
+        </div>
+        <div className='w-full flex justify-center bg-[#EFF0EF]'>
+          <a 
+            href="https://comic.maybetarun.in/projects"
+            target="_blank"
+            rel="noopener noreferrer"
+            className='border-2 border-[#2d2a32] hover:bg-[#2d2a32] hover:text-white text-[#2d2a32] text-[clamp(1rem,2.5vw,1.125rem)] font-medium rounded-full px-8 md:px-10 py-3 md:py-4 transition-all duration-200'
+          >
+            Check out all my projects
+          </a>
+        </div>
+        <section id='work' className='w-full h-fit pt-12 bg-[#EFF0EF]'>
+          <Work/>
+        </section>
+        <section id='benefits' className='w-full min-h-screen bg-[#EFF0EF] pt-20 pb-6 md:pb-16 flex flex-col items-center'>
+          <Benefits/>
+        </section>
+        <section id='services' className='w-full h-fit md:h-screen bg-[#EFF0EF] py-16 flex flex-col justify-center items-center'>
+          <Services/>
+        </section>
+        <section id="idea" className="relative w-full h-screen bg-[#2D2A32] overflow-hidden">
+          <div className='w-full h-32 bg-[#EFF0EF] block lg:hidden'></div>
+          <img src={Wave} alt="wave" className="relative w-full h-auto object-cover z-0"/>
+          <img src={Wave} alt="wave flipped" className="absolute bottom-0 left-0 w-full h-auto object-cover rotate-180 z-0 lg:-mb-28"/>
+          <div className='absolute inset-0 z-10 flex items-center justify-center'><Idea /></div>
+        </section>
+        <section id='contact' className='w-full h-screen bg-[#EFF0EF] overflow-hidden'>
+          <Contact/>
+        </section>
+      <div className='h-16 w-full hidden md:block'></div>
+      </div>
+      <div className='fixed bottom-0 left-0 w-full h-[12dvh] md:h-[50dvh] -z-10 overflow-x-hidden'>
+        <Footer/>
+      </div>
     </div>
-    <section id='work' className='w-full h-fit pt-24 bg-[#EFF0EF]'>
-      <Work/>
-    </section>
-    <section id='benefits' className='w-full min-h-screen bg-[#EFF0EF] pt-20 pb-6 md:pb-16 flex flex-col items-center'>
-      <Benefits/>
-    </section>
-    <section id='services' className='w-full h-fit md:h-screen bg-[#EFF0EF] py-16 flex flex-col justify-center items-center'>
-      <Services/>
-    </section>
-    <section id="idea" className="relative w-full h-screen bg-[#2D2A32] overflow-hidden">
-      <div className='w-full h-32 bg-[#EFF0EF] block lg:hidden'></div>
-      <img src={Wave} alt="wave" className="relative w-full h-auto object-cover z-0"/>
-      <img src={Wave} alt="wave flipped" className="absolute bottom-0 left-0 w-full h-auto object-cover rotate-180 z-0 lg:-mb-28"/>
-      <div className='absolute inset-0 z-10 flex items-center justify-center'><Idea /></div>
-    </section>
-    <section id='contact' className='w-full h-screen bg-[#EFF0EF] overflow-hidden'>
-      <Contact/>
-    </section>
-    </>
   );
 }
 

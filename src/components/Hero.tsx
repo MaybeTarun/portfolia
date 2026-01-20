@@ -8,7 +8,7 @@ const Hero = () => {
       
       <CoolMode>
         <motion.div
-          className="mb-2 mt-[10%] border border-[#dad9da] text-[#939195] rounded-full py-2 px-6 select-none cursor-crosshair z-20"
+          className="mb-2 mt-[10%] border-2 bg-[#00000005] border-[#dad9da] text-[#939195] rounded-full py-2 px-6 select-none cursor-crosshair z-20"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4, delay: 0 }}
@@ -79,7 +79,7 @@ const Hero = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4, delay: 0.2 }}
       >
-        Replace weeks of recruiting with minutes.
+        Replace weeks of recruiting with seconds.
         <br className="hidden md:block" />
         Hire a cool freelance developer now.
       </motion.p>

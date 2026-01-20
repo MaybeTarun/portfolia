@@ -4,7 +4,7 @@ import BaymaxWithCandy from './BaymaxWithCandy';
 function Benefits() {
   return (
     <>
-      <motion.h1 className="text-[clamp(2rem,4vw,4rem)] tracking-tighter font-extrabold text-[#2D2A32]" initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.4, delay: 0 }} viewport={{ once: true }}>Ready when you are</motion.h1>
+      <motion.h2 className="text-[clamp(2rem,4vw,4rem)] tracking-tighter font-extrabold text-[#2D2A32]" initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.4, delay: 0 }} viewport={{ once: true }}>Ready when you are</motion.h2>
       <motion.p className="text-[clamp(0.8rem,3vw,1.3rem)] tracking-tight font-light text-[#2D2A32] mb-8" initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.4, delay: 0 }} viewport={{ once: true }}>The instant alternative to hiring a developer.</motion.p>
       
       <div className="w-full px-4 max-w-[800px] flex flex-col md:flex-row gap-3 md:gap-6">

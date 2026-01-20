@@ -362,8 +362,8 @@ export const LogoLoop = React.memo<LogoLoopProps>(
           : (item.alt ?? item.title);
 
         const inner = item.href ? (
-          <button
-            type="button"
+          <a
+            href={item.href}
             className={cx(
               "inline-flex items-center no-underline rounded-[1rem]",
               "transition-transform duration-200 ease-linear",
@@ -373,7 +373,7 @@ export const LogoLoop = React.memo<LogoLoopProps>(
             onClick={(e) => handleLinkClick(e, item.href!)}
           >
             {content}
-          </button>
+          </a>
         ) : (
           content
         );

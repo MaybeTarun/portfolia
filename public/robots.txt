@@ -2,7 +2,7 @@ User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://freelance.maybetarun.in/sitemap.xml
+Sitemap: https://www.maybetarun.in/sitemap.xml
 
 # Crawl-delay for respectful crawling
 Crawl-delay: 1

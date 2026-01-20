@@ -1,0 +1,4 @@
+Contact: mailto:tarun234.tg@gmail.com
+Preferred-Languages: en
+Canonical: https://www.maybetarun.in/.well-known/security.txt
+Expires: 2027-01-21T00:00:00.000Z

@@ -1,0 +1,6 @@
+/* TEAM */
+  Developer: Tarun Gupta
+  Site: https://www.maybetarun.in/
+  Email: tarun234.tg@gmail.com
+  Twitter: @maybetarun
+  Location: Remote

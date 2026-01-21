@@ -20,3 +20,12 @@ Allow: /
 
 User-agent: Slurp
 Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: CCBot
+Allow: /

@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import Lenis from '@studio-freight/lenis';
+import { Analytics } from '@vercel/analytics/react';
 import Nav from './components/Nav';
 import Hero from './components/Hero';
 import Work from './components/Work';
@@ -112,6 +113,7 @@ function App() {
       <div className='fixed bottom-0 left-0 w-full h-[12dvh] md:h-[50dvh] -z-10 overflow-x-hidden'>
         <Footer/>
       </div>
+      <Analytics />
     </div>
   );
 }

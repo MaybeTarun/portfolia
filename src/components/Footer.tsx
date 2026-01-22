@@ -14,7 +14,7 @@ const Footer = () => {
                     width={true}
                     weight={true}
                     italic={false}
-                    textColor="#EFF0EF80"
+                    textColor="#EFF0EF10"
                     minFontSize={24}
                 />
             </div>

@@ -1,8 +1,7 @@
 {
   "headers": [
     {
-      "source": "/(.*)",
-      "destination": "/"
+      "source": "/(.*)"
     }
   ]
 }

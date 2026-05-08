@@ -231,6 +231,17 @@ export const LogoLoop = React.memo<LogoLoopProps>(
     const [isHovered, setIsHovered] = useState<boolean>(false);
     const [modalUrl, setModalUrl] = useState<string | null>(null);
 
+    useEffect(() => {
+      if (modalUrl) {
+        document.body.style.overflow = 'hidden';
+      } else {
+        document.body.style.overflow = '';
+      }
+      return () => {
+        document.body.style.overflow = '';
+      };
+    }, [modalUrl]);
+
     const targetVelocity = useMemo(() => {
       const magnitude = Math.abs(speed);
       const directionMultiplier = direction === "left" ? 1 : -1;
@@ -320,6 +331,67 @@ export const LogoLoop = React.memo<LogoLoopProps>(
       }
     }, [isGitHubLink]);
 
+interface LoopImageProps {
+  src: string;
+  alt?: string;
+  srcSet?: string;
+  sizes?: string;
+  width?: number;
+  height?: number;
+  title?: string;
+  scaleOnHover?: boolean;
+}
+
+const LoopImage: React.FC<LoopImageProps> = ({
+  src,
+  alt,
+  srcSet,
+  sizes,
+  width,
+  height,
+  title,
+  scaleOnHover,
+}) => {
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  return (
+    <div className={cx(
+      "relative overflow-hidden rounded-[1rem] border-2 border-[#2D2A32] transition-all duration-300",
+      !isLoaded && "min-w-[200px] bg-[#2D2A32]/10"
+    )}>
+      {!isLoaded && (
+        <div 
+          className="absolute inset-0 bg-[#2D2A32]/20 animate-pulse" 
+          style={{ height: 'var(--logoloop-logoHeight)' }}
+        />
+      )}
+      <img
+        className={cx(
+          "h-[var(--logoloop-logoHeight)] w-auto block object-contain",
+          "[-webkit-user-drag:none] pointer-events-none",
+          "[image-rendering:-webkit-optimize-contrast]",
+          "motion-reduce:transition-none",
+          "transition-all duration-500 ease-in-out",
+          !isLoaded ? "opacity-0 scale-95" : "opacity-100 scale-100",
+          scaleOnHover &&
+            "group-hover/item:scale-105"
+        )}
+        src={src}
+        srcSet={srcSet}
+        sizes={sizes}
+        width={width}
+        height={height}
+        alt={alt ?? ""}
+        title={title}
+        loading="lazy"
+        decoding="async"
+        draggable={false}
+        onLoad={() => setIsLoaded(true)}
+      />
+    </div>
+  );
+};
+
     const renderLogoItem = useCallback(
       (item: LogoItem, key: React.Key) => {
         const content = isNodeLogoItem(item) ? (
@@ -335,25 +407,15 @@ export const LogoLoop = React.memo<LogoLoopProps>(
             {item.node}
           </span>
         ) : (
-          <img
-            className={cx(
-              "h-[var(--logoloop-logoHeight)] w-auto block object-contain rounded-[1rem] border-2 border-[#2D2A32]",
-              "[-webkit-user-drag:none] pointer-events-none",
-              "[image-rendering:-webkit-optimize-contrast]",
-              "motion-reduce:transition-none",
-              scaleOnHover &&
-                "transition-transform duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] group-hover/item:scale-105"
-            )}
+          <LoopImage
             src={item.src}
             srcSet={item.srcSet}
             sizes={item.sizes}
             width={item.width}
             height={item.height}
-            alt={item.alt ?? ""}
+            alt={item.alt}
             title={item.title}
-            loading="lazy"
-            decoding="async"
-            draggable={false}
+            scaleOnHover={scaleOnHover}
           />
         );
 
@@ -465,35 +527,37 @@ export const LogoLoop = React.memo<LogoLoopProps>(
       </div>
       {modalUrl && (
         <div
-          className="fixed inset-0 z-50 flex"
+          className="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-8"
           role="dialog"
           aria-modal="true"
           aria-label="Project preview"
         >
           <div
-            className="absolute inset-0"
+            className="absolute inset-0 bg-black/60 backdrop-blur-sm transition-opacity duration-300"
             onClick={() => setModalUrl(null)}
           />
-          <div className="relative z-[1] flex w-full">
-            <div className="m-4 flex-1 rounded-2xl border border-[#2D2A32] bg-[#2D2A32] overflow-hidden">
-              <div className="flex items-center justify-between border-b border-[#2D2A32] px-4 py-2">
-                <a href={modalUrl} target="_blank"><div className="min-w-0 text-xs md:text-sm text-[#EFF0EF] truncate">
-                  {modalUrl}
-                </div></a>
+          <div className="relative z-[101] flex w-full h-full max-w-7xl flex-col">
+            <div className="flex-1 flex flex-col rounded-2xl border border-[#2D2A32] bg-[#2D2A32] overflow-hidden">
+              <div className="flex items-center justify-between border-b border-[#2D2A32] px-4 py-2 bg-[#2D2A32]">
+                <a href={modalUrl} target="_blank" rel="noopener noreferrer">
+                  <div className="min-w-0 text-xs md:text-sm text-[#EFF0EF] truncate hover:underline">
+                    {modalUrl}
+                  </div>
+                </a>
                 <button
                   type="button"
-                  className="px-2 text-base text-[#EFF0EF]"
+                  className="px-2 text-base text-[#EFF0EF] hover:text-white transition-colors"
                   onClick={() => setModalUrl(null)}
                   aria-label="Close"
                 >
                   ✖
                 </button>
               </div>
-              <div className="h-[calc(100vh-2rem-2.5rem)]">
+              <div className="flex-1 bg-white">
                 <iframe
                   title="Project website"
                   src={modalUrl || undefined}
-                  className="h-full w-full bg-white"
+                  className="h-full w-full border-none"
                   loading="eager"
                 />
               </div>
